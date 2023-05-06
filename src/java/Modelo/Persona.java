@@ -4,6 +4,11 @@
  */
 package Modelo;
 
+import jakarta.servlet.http.HttpServletRequest;
+import java.sql.*;
+import java.sql.SQLException;
+import java.util.HashMap;
+
 /**
  *
  * @author samue
@@ -22,13 +27,38 @@ public class Persona {
     public Persona() {
     }
 
+    public Persona(HttpServletRequest request) throws SQLException {
+        if (request.getParameter("id") != null && !request.getParameter("id").isBlank()) {
+            this.id = Integer.parseInt(request.getParameter("id"));
+        } else {
+            this.id = -1;
+        }
+
+        this.nombre = request.getParameter("nombre");
+        this.apellido = request.getParameter("apellido");
+        this.edad = Integer.parseInt(request.getParameter("edad"));
+        this.genero = request.getParameter("genero");
+        this.identificacion = Integer.parseInt(request.getParameter("identificacion"));
+        this.tipoIdentificacion = request.getParameter("tipoIdentificacion");
+    }
+
+    public Persona(ResultSet resultSet) throws SQLException {
+        this.id = resultSet.getInt("id");
+        this.nombre = resultSet.getString("nombre");
+        this.apellido = resultSet.getString("apellido");
+        this.edad = resultSet.getInt("edad");
+        this.genero = resultSet.getString("genero");
+        this.identificacion = resultSet.getInt("documento");
+        this.tipoIdentificacion = resultSet.getString("tipoDoc");
+    }
+
     public Persona(String nombre, String apellido, int identificacion, String tipoAyuda) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.identificacion = identificacion;
         this.tipoAyuda = tipoAyuda;
     }
-    
+
     public Persona(String nombre, String apellido, int edad, String genero, int identificacion, String tipoIdentificacion) {
         this.nombre = nombre;
         this.apellido = apellido;
@@ -93,13 +123,39 @@ public class Persona {
     public void setTipoIdentificacion(String tipoIdentificacion) {
         this.tipoIdentificacion = tipoIdentificacion;
     }
-    
+
     public String getTipoAyuda() {
         return tipoAyuda;
     }
 
     public void setTipoAyuda(String tipoAyuda) {
         this.tipoAyuda = tipoAyuda;
+    }
+
+    public HashMap toHashMap() {
+        HashMap persona = new HashMap();
+
+        persona.put("id", this.id);
+        persona.put("nombre", this.nombre);
+        persona.put("apellido", this.apellido);
+        persona.put("edad", this.edad);
+        persona.put("genero", this.genero);
+        persona.put("documento", this.identificacion);
+        persona.put("tipoDoc", this.tipoIdentificacion);
+
+        return persona;
+    }
+
+    @Override
+    public String toString() {
+        return "{ "
+                + "nombre: " + this.nombre + ","
+                + "apellido: " + this.apellido + ","
+                + "edad: " + this.edad + ","
+                + "genero: " + this.genero + ","
+                + "identificacion: " + this.identificacion + ","
+                + "tipoDoc" + this.tipoIdentificacion
+                + " }";
     }
 
 }

@@ -25,7 +25,7 @@
                     <input type="text" class="form-control" id="nombre" placeholder="Ingresa tu nombre" name="nombre" required="">
                 </div>
                 <div class="form-group">
-                    <label for="apellidos">Apellido:</label>
+                    <label for="apellido">Apellido:</label>
                     <input type="text" class="form-control" id="apellido" placeholder="Ingresa tus apellidos" name="apellido" required="">
                 </div>
                 <div class="form-group">
@@ -49,9 +49,9 @@
                     <label for="tipoIdentificacion">Típo de identificación:</label>
                     <select class="form-control" id="tipoIdentificacion" name="tipoIdentificacion">
                         <option selected disabled>Selecciona tu tipo de documento</option>
-                        <option value="C.C.">C.C.</option>
-                        <option value="T.I.">T.I.</option>
-                        <option value="otro">Otro</option>
+                        <option>C.C.</option>
+                        <option>T.I.</option>
+                        <option>Otro</option>
                     </select>
                 </div>
                 <button name="accion" type="submit" class="btn btn-primary" value="agregar">Enviar</button>
