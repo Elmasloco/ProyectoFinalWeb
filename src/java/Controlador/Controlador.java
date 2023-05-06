@@ -111,16 +111,6 @@ public class Controlador extends HttpServlet {
             } catch (SQLException e) {
                 System.out.println("Error al crear. " + e.getMessage());
             }
-
-//                String nombreU = request.getParameter("nombre");
-//                String apellidoU = request.getParameter("apellido");
-//                String edadUString = request.getParameter("edad");
-//                String genero = request.getParameter("genero");
-//                String documentoString = request.getParameter("identificacion");
-//                String tipoDocU = request.getParameter("tipoIdentificacion");
-//                int edad = Integer.parseInt(edadUString);
-//                int documento = Integer.parseInt(documentoString);
-//                Persona p = new Persona(nombreU, apellidoU, edad, genero, documento, tipoDocU);
             break;
             case "eliminar":
                 personaId = request.getParameter("id");

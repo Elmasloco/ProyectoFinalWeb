@@ -102,6 +102,7 @@ public class PersonaDAO {
                 Persona persona = new Persona(rs);
                 return persona.toHashMap();
             }
+            cerrarConexion();
         } catch (SQLException e) {
             System.out.println("Error al buscar registro: " + e);
         }
