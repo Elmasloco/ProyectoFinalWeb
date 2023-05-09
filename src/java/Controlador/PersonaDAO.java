@@ -4,6 +4,7 @@
  */
 package Controlador;
 
+import Modelo.Administrador;
 import java.sql.*;
 import Modelo.Persona;
 import java.util.ArrayList;
@@ -45,7 +46,7 @@ public class PersonaDAO {
     }
 
     public void insertar(Persona persona) {
-        String sql = "INSERT INTO proyectofinaldb.registros(nombre,apellido,edad,genero,documento,tipoDoc) VALUES (?,?,?,?,?,?)";
+        String sql = "INSERT INTO proyectofinaldb.registros(nombre,apellido,edad,genero,documento,tipoDoc,Rol) VALUES (?,?,?,?,?,?,?)";
         try {
             conexion();
             if (conectar == null) {
@@ -58,6 +59,7 @@ public class PersonaDAO {
             ps.setString(4, persona.getGenero());
             ps.setInt(5, persona.getIdentificacion());
             ps.setString(6, persona.getTipoIdentificacion());
+            ps.setString(7, persona.getTipoRol());
             int resultId = ps.executeUpdate();
             System.out.println("Se inserto el ID: " + resultId);
             cerrarConexion();
@@ -67,6 +69,28 @@ public class PersonaDAO {
         }
     }
 
+    public void insertarAdmin(Administrador admin) {
+        String sql = "INSERT INTO proyectofinaldb.admins(nombre,apellido,cargo) VALUES (?,?,?)";
+        try {
+            conexion();
+            if (conectar == null) {
+                throw new SQLException("missing connection");
+            }
+            ps = conectar.prepareStatement(sql);
+            ps.setString(1, admin.getNombre());
+            ps.setString(2, admin.getApellido());
+            ps.setString(3, admin.getCargo());
+            int resultId = ps.executeUpdate();
+            System.out.println("Nombre admin: "+admin.getNombre());
+            System.out.println("Apellido admin: "+admin.getApellido());
+            System.out.println("Se inserto el ID: " + resultId);
+            cerrarConexion();
+        } catch (SQLException e) {
+            System.out.println("Error al insertar en la tabla");
+            System.out.println("Error:" + e.getMessage());
+        }
+    }
+    
     public ArrayList<HashMap> listar() {
         String sql = "SELECT * FROM registros";
         ArrayList<HashMap> resultado = new ArrayList<>();
@@ -137,12 +161,13 @@ public class PersonaDAO {
         }
 
         String sql = "UPDATE proyectofinaldb.registros "
-                + "SET nombre=?,"
+                +"SET nombre=?,"
                 + "apellido=?,"
                 + "edad=?,"
                 + "genero=?,"
                 + "documento=?,"
-                + "tipoDoc=?"
+                + "tipoDoc=?,"
+                + "Rol=?"
                 + "WHERE id=" + persona.getId();
         try {
             conexion();
@@ -157,6 +182,7 @@ public class PersonaDAO {
             ps.setString(4, persona.getGenero());
             ps.setInt(5, persona.getIdentificacion());
             ps.setString(6, persona.getTipoIdentificacion());
+            ps.setString(7, persona.getTipoRol());
 
             int resultId = ps.executeUpdate();
             System.out.println("Se modifico el ID: " + resultId);

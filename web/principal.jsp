@@ -31,6 +31,7 @@
                         <th scope="col">Genero</th>
                         <th scope="col">Documento</th>
                         <th scope="col">Tipo Documento</th>
+                        <th scope="col">Rol</th>
                         <th scope="col"></th> 
                     </tr>
                 </thead>
@@ -49,6 +50,7 @@
                                 out.print("<td>"+persona.get("genero")+"</td>");
                                 out.print("<td>"+persona.get("documento")+"</td>");
                                 out.print("<td>"+persona.get("tipoDoc")+"</td>");
+                                out.print("<td>"+persona.get("Rol")+"</td>");
                                 out.print(""
                                 + "<td>"
                                 + "<form action='Controlador' method='POST'>"

@@ -4,7 +4,9 @@
  */
 package Controlador;
 
+import Modelo.Administrador;
 import Modelo.Persona;
+import Modelo.Usuario;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -104,10 +106,25 @@ public class Controlador extends HttpServlet {
         switch (accion) {
             case "agregar":
             try {
-                persona = new Persona(request);
-                pdao.insertar(persona);
-                System.out.println(persona);
-                response.sendRedirect("principal.jsp");
+                String rolPersona = request.getParameter("tipoRol");
+                System.out.println("ROL: " + rolPersona);
+                if (rolPersona.equalsIgnoreCase("User")) {
+                    persona = new Usuario(request);
+                    pdao.insertar(persona);
+                    System.out.println(persona);
+                    response.sendRedirect("principal.jsp");
+                } else if (rolPersona.equalsIgnoreCase("Admin")) {
+                    String cargo = request.getParameter("tipoCargo");
+                    String nombre = request.getParameter("nombre");
+                    String apellido = request.getParameter("apellido");
+                    persona = new Administrador(request);
+                    Administrador admin = new Administrador(nombre, apellido, cargo);
+                    pdao.insertar(persona);
+                    pdao.insertarAdmin(admin);
+                    System.out.println(admin);
+                    System.out.println(persona);
+                    response.sendRedirect("principal.jsp");
+                }
             } catch (SQLException e) {
                 System.out.println("Error al crear. " + e.getMessage());
             }

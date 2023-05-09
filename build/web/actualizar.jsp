@@ -63,6 +63,14 @@
                         <option <%= persona.get("tipoDoc").equals("Otro") ? "selected" : "" %> >Otro</option>
                     </select>
                 </div>
+                    <div class="form-group">
+                    <label for="tipoRol">Típo de rol:</label>
+                    <select class="form-control" id="tipoRol" name="tipoRol" value="${persona.Rol}">
+                        <option selected disabled>Selecciona tu rol</option>
+                        <option <%= persona.get("Rol").equals("User") ? "selected" : "" %> disabled>User</option>
+                        <option <%= persona.get("Rol").equals("Admin") ? "selected" : "" %> disabled>Admin</option>
+                    </select>
+                </div>
                 <a href="principal.jsp" type="button" class="btn btn-secondary">Ver registros</a>
                 <button name="accion" type="submit" class="btn btn-primary" value="modificar">Enviar</button>
                 <button name="accion" type="submit" class="btn btn-danger" value="eliminar">Eliminar registro</button>

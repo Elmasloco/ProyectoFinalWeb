@@ -22,6 +22,7 @@ public class Persona {
     private String genero;
     private int identificacion;
     private String tipoIdentificacion;
+    private String tipoRol;
 
     public Persona() {
     }
@@ -39,6 +40,7 @@ public class Persona {
         this.genero = request.getParameter("genero");
         this.identificacion = Integer.parseInt(request.getParameter("identificacion"));
         this.tipoIdentificacion = request.getParameter("tipoIdentificacion");
+        this.tipoRol = request.getParameter("tipoRol");
     }
 
     public Persona(ResultSet resultSet) throws SQLException {
@@ -49,6 +51,7 @@ public class Persona {
         this.genero = resultSet.getString("genero");
         this.identificacion = resultSet.getInt("documento");
         this.tipoIdentificacion = resultSet.getString("tipoDoc");
+        this.tipoRol = resultSet.getString("Rol");
     }
 
     public int getId() {
@@ -107,6 +110,14 @@ public class Persona {
         this.tipoIdentificacion = tipoIdentificacion;
     }
 
+    public String getTipoRol() {
+        return tipoRol;
+    }
+
+    public void setTipoRol(String tipoRol) {
+        this.tipoRol = tipoRol;
+    }
+    
     public HashMap toHashMap() {
         HashMap persona = new HashMap();
 
@@ -117,6 +128,7 @@ public class Persona {
         persona.put("genero", this.genero);
         persona.put("documento", this.identificacion);
         persona.put("tipoDoc", this.tipoIdentificacion);
+        persona.put("Rol", this.tipoRol);
 
         return persona;
     }
@@ -129,7 +141,8 @@ public class Persona {
                 + "edad: " + this.edad + ","
                 + "genero: " + this.genero + ","
                 + "identificacion: " + this.identificacion + ","
-                + "tipoDoc" + this.tipoIdentificacion
+                + "tipoDoc: " + this.tipoIdentificacion + ","
+                + "tipoRol: " + this.tipoRol
                 + " }";
     }
 

@@ -54,9 +54,35 @@
                         <option>Otro</option>
                     </select>
                 </div>
+                <div class="form-group">
+                    <label for="tipoRol">Típo de rol:</label>
+                    <select class="form-control" id="tipoRol" name="tipoRol" onchange="mostrarInput(this)">
+                        <option selected disabled>Selecciona tu rol</option>
+                        <option value="User">User</option>
+                        <option value="Admin">Admin</option>
+                    </select>
+                </div>
+                <div class="form-group" style="display: none" id="cargoAdmin">
+                    <label for="tipoRol">Típo de rol:</label>
+                    <select class="form-control" id="tipoCargo" name="tipoCargo">
+                        <option selected disabled>Selecciona tu rol</option>
+                        <option>Logistica</option>
+                        <option>Organizador principal</option>
+                        <option>Presentador</option>
+                    </select>
+                </div>
                 <button name="accion" type="submit" class="btn btn-primary" value="agregar">Enviar</button>
                 <a href="principal.jsp" type="button" class="btn btn-secondary">Ver registros</a>
             </form>
+            <script>
+                function mostrarInput(elemento) {
+                    let index = elemento.selectedIndex;
+                    let opcion = elemento.options[index].value;
+                    if(opcion === "Admin"){
+                        document.getElementById("cargoAdmin").style.display = "block";
+                    }
+                }
+            </script>
         </div>
     </body>
 </html>
