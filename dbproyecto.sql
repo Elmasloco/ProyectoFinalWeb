@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1:3307
--- Tiempo de generación: 30-04-2023 a las 17:52:51
+-- Tiempo de generación: 10-05-2023 a las 03:10:09
 -- Versión del servidor: 10.4.28-MariaDB
--- Versión de PHP: 8.0.28
+-- Versión de PHP: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -20,8 +20,29 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `proyectofinaldb`
 --
-CREATE DATABASE IF NOT EXISTS `proyectofinaldb` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
-USE `proyectofinaldb`;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `admins`
+--
+
+CREATE TABLE `admins` (
+  `id` int(11) NOT NULL,
+  `nombre` varchar(25) DEFAULT NULL,
+  `apellido` varchar(25) DEFAULT NULL,
+  `cargo` varchar(25) DEFAULT NULL,
+  `contraseña` varchar(100) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Volcado de datos para la tabla `admins`
+--
+
+INSERT INTO `admins` (`id`, `nombre`, `apellido`, `cargo`, `contraseña`) VALUES
+(11, 'Romoncio', 'PatiÃ±o', 'Organizador principal', '9289955'),
+(12, 'Natalia', 'Paris', 'Presentador', '101010'),
+(13, 'Tatiana', 'Coy', 'Presentador', '1234');
 
 -- --------------------------------------------------------
 
@@ -36,27 +57,47 @@ CREATE TABLE `registros` (
   `edad` int(11) NOT NULL,
   `genero` varchar(45) NOT NULL,
   `documento` int(11) NOT NULL,
-  `tipoDoc` varchar(15) NOT NULL
+  `tipoDoc` varchar(15) NOT NULL,
+  `Rol` varchar(15) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Volcado de datos para la tabla `registros`
 --
 
-INSERT INTO `registros` (`id`, `nombre`, `apellido`, `edad`, `genero`, `documento`, `tipoDoc`) VALUES
-(1, 'Samuel', 'Tarazona', 19, 'Masculino', 12312312, 'cc'),
-(2, 'Samuel', 'Tarazona', 15, 'masculino', 1478546521, 'T.I.'),
-(3, 'Dani', 'Tarazona', 12, 'masculino', 155845654, 'T.I.'),
-(5, 'koki', 'Tarazona', 60, 'masculino', 58484515, 'C.C.'),
-(6, 'Sandra', 'Arciniegas', 49, 'femenino', 52081196, 'C.C.'),
-(7, 'Sandra', 'Arciniegas', 19, 'femenino', 1478546521, 'C.C.'),
-(8, 'Dani', 'Tarazona', 7, 'masculino', 48845584, 'T.I.'),
-(9, 'Nico', 'Tarazona', 26, 'masculino', 4866248, 'C.C.'),
-(10, 'Maria', 'Martinez', 12, 'femenino', 5886664, 'T.I.');
+INSERT INTO `registros` (`id`, `nombre`, `apellido`, `edad`, `genero`, `documento`, `tipoDoc`, `Rol`) VALUES
+(1, 'Samuel', 'Tarazona', 19, 'Masculino', 12312312, 'cc', 'Admin'),
+(2, 'Samuel', 'Tarazona', 15, 'masculino', 1478546521, 'T.I.', 'Admin'),
+(3, 'Dani', 'Tarazona', 12, 'masculino', 155845654, 'T.I.', 'User'),
+(5, 'koki', 'Tarazona', 60, 'masculino', 58484515, 'C.C.', 'User'),
+(6, 'Sandra', 'Arciniegas', 49, 'femenino', 1258895, 'C.C.', 'Admin'),
+(7, 'Sandra', 'Arciniegas', 19, 'femenino', 1478546521, 'C.C.', 'User'),
+(8, 'Dani', 'Tarazona', 7, 'masculino', 48845584, 'T.I.', 'User'),
+(9, 'Nico', 'Tarazona', 26, 'masculino', 4866248, 'C.C.', 'User'),
+(10, 'Maria', 'Martinez', 22, 'femenino', 5886664, 'C.C.', 'User'),
+(11, 'Samuel Leonardo', 'Tarazona Arciniegas', 22, 'masculino', 12443443, 'C.C.', 'User'),
+(19, 'Natalia', 'Paris', 58, 'femenino', 87432321, 'C.C.', 'Admin'),
+(20, 'Camila', 'Aponte', 19, 'femenino', 34252111, 'T.I.', 'Admin'),
+(21, 'Larry', 'Saloca', 19, 'masculino', 253141, 'Otro', 'Admin'),
+(22, 'Marina', 'Martin', 30, 'femenino', 58840668, 'Otro', 'Admin'),
+(23, 'Bob', 'PatiÃ±o', 25, 'masculino', 4788511, 'Otro', 'Admin'),
+(24, 'Paola', 'Santana', 20, 'femenino', 998741, 'C.C.', 'Admin'),
+(25, 'Jack', 'Sparrow', 100, 'masculino', 9987100, 'Otro', 'Admin'),
+(27, 'Natalia', 'Paris', 50, 'femenino', 88555, 'C.C.', 'Admin'),
+(28, 'Sara', 'PatiÃ±o', 19, 'femenino', 69874, 'T.I.', 'User'),
+(29, 'Marcos', 'Alonso', 31, 'masculino', 1250041, 'C.C.', 'User'),
+(30, 'Mamma', 'Mia', 25, 'femenino', 10100048, 'T.I.', 'User'),
+(31, 'Sara', 'Coy', 20, 'femenino', 198481, 'C.C.', 'Admin');
 
 --
 -- Índices para tablas volcadas
 --
+
+--
+-- Indices de la tabla `admins`
+--
+ALTER TABLE `admins`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indices de la tabla `registros`
@@ -69,10 +110,16 @@ ALTER TABLE `registros`
 --
 
 --
+-- AUTO_INCREMENT de la tabla `admins`
+--
+ALTER TABLE `admins`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+
+--
 -- AUTO_INCREMENT de la tabla `registros`
 --
 ALTER TABLE `registros`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -67,8 +67,8 @@
                     <label for="tipoRol">Típo de rol:</label>
                     <select class="form-control" id="tipoRol" name="tipoRol" value="${persona.Rol}">
                         <option selected disabled>Selecciona tu rol</option>
-                        <option <%= persona.get("Rol").equals("User") ? "selected" : "" %> disabled>User</option>
-                        <option <%= persona.get("Rol").equals("Admin") ? "selected" : "" %> disabled>Admin</option>
+                        <option>User</option>
+                        <option>Admin</option>
                     </select>
                 </div>
                 <a href="principal.jsp" type="button" class="btn btn-secondary">Ver registros</a>

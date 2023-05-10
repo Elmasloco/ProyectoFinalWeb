@@ -71,8 +71,13 @@
                         <option>Presentador</option>
                     </select>
                 </div>
+                <div class="form-group" style="display: none" id="adminPass">
+                    <label for="pass">Contraseña:</label>
+                    <input type="password" class="form-control" id="pass" placeholder="Ingresa tu contraseña" name="pass"> 
+                </div>
                 <button name="accion" type="submit" class="btn btn-primary" value="agregar">Enviar</button>
                 <a href="principal.jsp" type="button" class="btn btn-secondary">Ver registros</a>
+                <a href="administrador.jsp" type="button" class="btn btn-info">Administradores</a>
             </form>
             <script>
                 function mostrarInput(elemento) {
@@ -80,6 +85,10 @@
                     let opcion = elemento.options[index].value;
                     if(opcion === "Admin"){
                         document.getElementById("cargoAdmin").style.display = "block";
+                        document.getElementById("adminPass").style.display = "block";
+                    }else if(opcion === "User"){
+                        document.getElementById("cargoAdmin").style.display = "none";
+                        document.getElementById("adminPass").style.display = "none";
                     }
                 }
             </script>

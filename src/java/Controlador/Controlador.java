@@ -24,8 +24,8 @@ import java.util.HashMap;
 @WebServlet(name = "Controlador", urlPatterns = {"/Controlador"})
 public class Controlador extends HttpServlet {
 
-    PersonaDAO pdao = new PersonaDAO();
-
+    private PersonaDAO pdao = new PersonaDAO();
+    private Persona persona;
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -100,7 +100,6 @@ public class Controlador extends HttpServlet {
             throws ServletException, IOException {
 
         String personaId;
-        Persona persona;
         String accion = request.getParameter("accion");
         System.out.println("ACCION: " + accion);
         switch (accion) {
@@ -117,8 +116,9 @@ public class Controlador extends HttpServlet {
                     String cargo = request.getParameter("tipoCargo");
                     String nombre = request.getParameter("nombre");
                     String apellido = request.getParameter("apellido");
+                    String contraseña = request.getParameter("pass");
                     persona = new Administrador(request);
-                    Administrador admin = new Administrador(nombre, apellido, cargo);
+                    Administrador admin = new Administrador(nombre, apellido, cargo, contraseña);
                     pdao.insertar(persona);
                     pdao.insertarAdmin(admin);
                     System.out.println(admin);
@@ -147,6 +147,17 @@ public class Controlador extends HttpServlet {
                 System.out.println("Error al modificar. " + e.getMessage());
             }
             break;
+            case "iniciarsesion":
+                String id = request.getParameter("idIngreso");
+                String pass = request.getParameter("passIngreso");
+                System.out.println("ID: "+id+" PASSWORD: "+pass);
+                boolean ingreso = pdao.ingreso(Integer.parseInt(id), pass);
+                if(ingreso == true){
+                    response.sendRedirect("principal.jsp");
+                }else{
+                    request.getRequestDispatcher("administrador.jsp").forward(request, response);
+                }                
+                break;
             default:
                 break;
         }

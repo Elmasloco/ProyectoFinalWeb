@@ -17,10 +17,10 @@ import java.util.HashMap;
 public class PersonaDAO {
 //?useSSL=false
 
-    Connection conectar;
-    PreparedStatement ps;
-    Statement st;
-    ResultSet rs;
+    private Connection conectar;
+    private PreparedStatement ps;
+    private Statement st;
+    private ResultSet rs;
 
     public Connection conexion() {
         try {
@@ -70,7 +70,7 @@ public class PersonaDAO {
     }
 
     public void insertarAdmin(Administrador admin) {
-        String sql = "INSERT INTO proyectofinaldb.admins(nombre,apellido,cargo) VALUES (?,?,?)";
+        String sql = "INSERT INTO proyectofinaldb.admins(nombre,apellido,cargo,contraseña) VALUES (?,?,?,?)";
         try {
             conexion();
             if (conectar == null) {
@@ -80,9 +80,8 @@ public class PersonaDAO {
             ps.setString(1, admin.getNombre());
             ps.setString(2, admin.getApellido());
             ps.setString(3, admin.getCargo());
+            ps.setString(4, admin.getContraseña());
             int resultId = ps.executeUpdate();
-            System.out.println("Nombre admin: "+admin.getNombre());
-            System.out.println("Apellido admin: "+admin.getApellido());
             System.out.println("Se inserto el ID: " + resultId);
             cerrarConexion();
         } catch (SQLException e) {
@@ -90,7 +89,7 @@ public class PersonaDAO {
             System.out.println("Error:" + e.getMessage());
         }
     }
-    
+
     public ArrayList<HashMap> listar() {
         String sql = "SELECT * FROM registros";
         ArrayList<HashMap> resultado = new ArrayList<>();
@@ -155,27 +154,41 @@ public class PersonaDAO {
         }
     }
 
+    public void eliminarAdmin(int id) {
+        String elimina = "DELETE FROM admins WHERE id=" + id;
+        String busca = "SELECT * FROM admins WHERE id=" + id;
+        try {
+            conexion();
+            if (conectar == null) {
+                throw new SQLException("missing connection");
+            }
+            st = conectar.createStatement();
+            rs = st.executeQuery(busca);
+            if (rs.next()) {
+                st.executeUpdate(elimina);
+                System.out.println("Registro eliminado");
+            } else {
+                System.out.println("Registro no encontrado");
+            }
+            cerrarConexion();
+        } catch (SQLException e) {
+            System.out.println("Error al eliminar registro: " + e);
+        }
+    }
+
     public void actualizar(Persona persona) {
         if (persona.getId() == -1) {
             return;
         }
 
-        String sql = "UPDATE proyectofinaldb.registros "
-                +"SET nombre=?,"
-                + "apellido=?,"
-                + "edad=?,"
-                + "genero=?,"
-                + "documento=?,"
-                + "tipoDoc=?,"
-                + "Rol=?"
-                + "WHERE id=" + persona.getId();
+        String sql = "UPDATE proyectofinaldb.registros SET nombre=?,apellido=?,edad=?,genero=?,documento=?,tipoDoc=?,Rol=? WHERE id=" + persona.getId();
         try {
             conexion();
             if (conectar == null) {
                 throw new SQLException("missing connection");
             }
             ps = conectar.prepareStatement(sql);
-
+            System.out.println("Nombre persona: " + persona.getNombre());
             ps.setString(1, persona.getNombre());
             ps.setString(2, persona.getApellido());
             ps.setInt(3, persona.getEdad());
@@ -192,4 +205,37 @@ public class PersonaDAO {
         }
     }
 
+    public boolean ingreso(int id, String password) {
+        boolean acceso = false;
+        String buscaId = "SELECT * FROM registros WHERE id=" + id;
+        String buscaPass = "SELECT * FROM registros WHERE id=" + password;
+
+        try {
+            conexion();
+            if (conectar == null) {
+                throw new SQLException("missing connection");
+            }
+            System.out.println("ACCESO 1: "+acceso);
+            st = conectar.createStatement();
+            rs = st.executeQuery(buscaId);
+            if (rs.next()) {
+                rs = st.executeQuery(buscaPass);
+                if (rs.next()) {
+                    acceso = true;
+                    System.out.println("ACCESO 2: "+acceso);
+                    return acceso;
+                }
+            } else {
+                return acceso;
+            }
+            cerrarConexion();
+        } catch (SQLException e) {
+            System.out.println("Error al buscar registro: " + e);
+        }
+        System.out.println("ACCESO 3: "+acceso);
+        return acceso;
+
+    }
+
 }
+//Leon: index, iniciar sesion, registrarse, visualizar
