@@ -3,12 +3,9 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/samue/Desktop/ProyectoFinalWeb/web/registro.jsp</file>
-            <file>file:/C:/Users/samue/Desktop/ProyectoFinalWeb/web/iniciarsesion.jsp</file>
-            <file>file:/C:/Users/samue/Desktop/ProyectoFinalWeb/web/actualizar.jsp</file>
-            <file>file:/C:/Users/samue/Desktop/ProyectoFinalWeb/web/styleIndex.css</file>
-            <file>file:/C:/Users/samue/Desktop/ProyectoFinalWeb/web/index.jsp</file>
-            <file>file:/C:/Users/samue/Desktop/ProyectoFinalWeb/web/principal.jsp</file>
+            <file>file:/C:/Users/samue/Documents/NetBeansProjects/ProyectoFinalWeb/src/java/Controlador/PersonaDAO.java</file>
+            <file>file:/C:/Users/samue/Documents/NetBeansProjects/ProyectoFinalWeb/src/java/Controlador/Controlador.java</file>
+            <file>file:/C:/Users/samue/Documents/NetBeansProjects/ProyectoFinalWeb/web/iniciarsesion.jsp</file>
         </group>
     </open-files>
 </project-private>
