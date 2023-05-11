@@ -3,11 +3,7 @@
     padding: 0;
     box-sizing: border-box;
 }
-<<<<<<< HEAD
-.container{
-=======
 .from-register{
->>>>>>> 062d9a177acd224b98c3fc385c81aeb12738a397
     width: 400px;
     background: #24303c;
     padding: 30px;
@@ -18,11 +14,7 @@
     color: white;
     box-shadow:7px 13px 37px #000;
 }
-<<<<<<< HEAD
-.container h4{
-=======
 .from-register h4{
->>>>>>> 062d9a177acd224b98c3fc385c81aeb12738a397
     font-size: 22px;
     margin-bottom: 20px;
 }
@@ -31,64 +23,35 @@
     background: #24303c;
     padding: 10px;
     border-radius: 4px;
-<<<<<<< HEAD
-    margin-top: 15px;
-    margin-bottom: 30px;
-=======
     margin-bottom: 10px;
->>>>>>> 062d9a177acd224b98c3fc385c81aeb12738a397
     border: 1px solid #1f53c5;
     font-family: 'calibri';
     font-size: 18px;
 }
-<<<<<<< HEAD
-.form-group{
- margin-top: 10px;
-}
-.container p{
-    height: 90px;
-=======
 
 .from-register p{
     height: 40px;
->>>>>>> 062d9a177acd224b98c3fc385c81aeb12738a397
     text-align: center;
     font-size: 18px;
     line-height: 40px;
 }
 
-<<<<<<< HEAD
-.container a{
-=======
 .from-register a{
->>>>>>> 062d9a177acd224b98c3fc385c81aeb12738a397
     color: white;
     text-decoration: none;
 }
 
-<<<<<<< HEAD
-.container a:hover{
-    color: white;
-    text-decoration: underline;
-}
-.container .btn{
-=======
 .from-register a:hover{
     color: white;
     text-decoration: underline;
 }
 .from-register .btn{
->>>>>>> 062d9a177acd224b98c3fc385c81aeb12738a397
     width: 100%;
     background: #1f53c5;
     border: none;
     padding: 12px;
     color: white;
     margin: 16px 0;
-<<<<<<< HEAD
-    margin-top: 10px;
-=======
->>>>>>> 062d9a177acd224b98c3fc385c81aeb12738a397
     font-size: 16px;
 }
 .combo{

@@ -12,18 +12,9 @@
         <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js" integrity="sha384-zYPOMqeu1DAVkHiLqWBUTcbYfZ8osu1Nd6Z89ify25QV9guujx43ITvfi12/QExE" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.min.js" integrity="sha384-Y4oOpwW3duJdCWv5ly8SCFYWqFDsfob/3GkgExXKV4idmbt98QcxXYs9UoXAB7BZ" crossorigin="anonymous"></script>
         <title>Iniciar Sesion</title>
-<<<<<<< HEAD
-       
-        <link href="styleIndex.css" rel="stylesheet" type="text/css"/>
-        <link href="Fonts.css" rel="stylesheet" type="text/css"/>
-        <link href="Formulario.css" rel="stylesheet" type="text/css"/>
-        
-        
-=======
         <link href="styleIndex.css" rel="stylesheet" type="text/css"/>
         <link href="Fonts.css" rel="stylesheet" type="text/css"/>
         <link href="pruebainiciosesion.css" rel="stylesheet" type="text/css"/>  
->>>>>>> 062d9a177acd224b98c3fc385c81aeb12738a397
     </head>
     <body>
 
@@ -34,29 +25,14 @@
 
             <nav>
                 <ul>
-<<<<<<< HEAD
-                    <li><a href="index.jsp"><span class="icon-user"></span>Volver</a></li>
-                    <li><a href="registro.jsp"><span class="icon-profile"></span>Registrarse</a></li>
-                    <li><a href="listarpersonas.jsp"><span class="icon-eye"></span>Visualizar Registros</a></li>				
-=======
                     <li><a href="iniciarsesion.jsp"><span class="icon-user"></span>Iniciar Sesion</a></li>
                     <li><a href="registro.jsp"><span class="icon-profile"></span>Registrarse</a></li>
                     <li><a href="principal.jsp"><span class="icon-eye"></span>Visualizar Registros</a></li>				
->>>>>>> 062d9a177acd224b98c3fc385c81aeb12738a397
                 </ul>
             </nav>
         </header>
         <section>
             <div class="container">
-<<<<<<< HEAD
-                <h2>Inicio de Sesión de administrador</h2>
-                <form action="Controlador" method="POST">
-                    <div class="form-group">
-                        <label for="ingresID" class="form-control" >ID de Usuario:</label> 
-                        <input type="text" class="form-control" id="ingresID" name="ingresID" placeholder="Ingrese su ID de usuario" required>
-                    </div>
-                    <button type="submit" class="btn btn-primary"btn btn-prim name="accion" value="iniciarsesion">Iniciar Sesión</button>    
-=======
                 <h2>Inicio de Sesión</h2>
                 <form action="Controlador" method="POST">
                     <div class="form-group">
@@ -69,7 +45,6 @@
                     </div>
                     <button type="submit" class="btn btn-primary"btn btn-prim name="accion" value="iniciarsesion">Iniciar Sesión</button>
                     <a href="index.jsp" type="button" class="btn btn-secondary">Volver</a>
->>>>>>> 062d9a177acd224b98c3fc385c81aeb12738a397
                 </form>
             </div>
         </section>

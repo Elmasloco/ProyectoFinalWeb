@@ -71,11 +71,6 @@
                         <option>Presentador</option>
                     </select>
                 </div>
-<<<<<<< HEAD
-                <button name="accion" type="submit" class="btn btn-success" value="agregar">Enviar</button>
-                <a href="listarpersonas.jsp" type="button" class="btn btn-secondary">Ver registros</a>
-                <a href="index.jsp" type="button" class="btn btn-primary">Volver   </a>
-=======
                 <div class="form-group" style="display: none" id="adminPass">
                     <label for="pass">Contraseña:</label>
                     <input type="password" class="form-control" id="pass" placeholder="Ingresa tu contraseña" name="pass"> 
@@ -83,7 +78,6 @@
                 <button name="accion" type="submit" class="btn btn-primary" value="agregar">Enviar</button>
                 <a href="principal.jsp" type="button" class="btn btn-secondary">Ver registros</a>
                 <a href="administrador.jsp" type="button" class="btn btn-info">Administradores</a>
->>>>>>> 062d9a177acd224b98c3fc385c81aeb12738a397
             </form>
             <script>
                 function mostrarInput(elemento) {

@@ -7,6 +7,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
+<<<<<<< HEAD
     
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Menu Principal</title>        
@@ -15,6 +16,14 @@
         <link href="Fonts.css" rel="stylesheet" type="text/css"/>
         
     
+=======
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Menu Principal</title>        
+        <link href="styleIndex.css" rel="stylesheet" type="text/css"/>
+        <link href="Fonts.css" rel="stylesheet" type="text/css"/>
+    </head>
+>>>>>>> 062d9a177acd224b98c3fc385c81aeb12738a397
     <body>
         <header>
             <div class="menu_bar">
@@ -25,7 +34,11 @@
                 <ul>
                     <li><a href="iniciarsesion.jsp"><span class="icon-user"></span>Iniciar Sesion</a></li>
                     <li><a href="registro.jsp"><span class="icon-profile"></span>Registrarse</a></li>
+<<<<<<< HEAD
                     <li><a href="listarpersonas.jsp"><span class="icon-eye"></span>Visualizar Registros</a></li>				
+=======
+                    <li><a href="principal.jsp"><span class="icon-eye"></span>Visualizar Registros</a></li>				
+>>>>>>> 062d9a177acd224b98c3fc385c81aeb12738a397
                 </ul>
             </nav>
         </header>

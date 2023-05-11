@@ -150,6 +150,7 @@ public class Controlador extends HttpServlet {
             }
             break;
             case "iniciarsesion":
+<<<<<<< HEAD
                 String id = request.getParameter("ingresID");
                 System.out.println("ID: " + id);
                 try {
@@ -165,6 +166,17 @@ public class Controlador extends HttpServlet {
                     System.out.println("Error: " + e);
                 }
 
+=======
+                String id = request.getParameter("idIngreso");
+                String pass = request.getParameter("passIngreso");
+                System.out.println("ID: "+id+" PASSWORD: "+pass);
+                boolean ingreso = pdao.ingreso(Integer.parseInt(id), pass);
+                if(ingreso == true){
+                    response.sendRedirect("principal.jsp");
+                }else{
+                    request.getRequestDispatcher("iniciarsesion.jsp").forward(request, response);
+                }                
+>>>>>>> 062d9a177acd224b98c3fc385c81aeb12738a397
                 break;
 
             default:
