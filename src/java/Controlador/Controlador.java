@@ -155,7 +155,7 @@ public class Controlador extends HttpServlet {
                 if(ingreso == true){
                     response.sendRedirect("principal.jsp");
                 }else{
-                    request.getRequestDispatcher("administrador.jsp").forward(request, response);
+                    request.getRequestDispatcher("iniciarsesion.jsp").forward(request, response);
                 }                
                 break;
             default:

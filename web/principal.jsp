@@ -69,7 +69,7 @@
                     %>
                 </tbody>
             </table>
-            <a href="index.jsp" type="button" class="btn btn-primary">Registrar</a>
+            <a href="registro.jsp" type="button" class="btn btn-primary">Registrar</a>
         </div>
 
          </body>
