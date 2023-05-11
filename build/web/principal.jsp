@@ -32,7 +32,7 @@
                         <th scope="col">Documento</th>
                         <th scope="col">Tipo Documento</th>
                         <th scope="col">Rol</th>
-                        <th scope="col"></th> 
+                        <th scope="col"><a href="index.jsp" type="button" class="btn btn-primary">Volver</a></th> 
                     </tr>
                 </thead>
                 <tbody>
@@ -69,7 +69,7 @@
                     %>
                 </tbody>
             </table>
-            <a href="index.jsp" type="button" class="btn btn-primary">Registrar</a>
+            <a href="registro.jsp" type="button" class="btn btn-primary">Registrar</a>
         </div>
 
          </body>

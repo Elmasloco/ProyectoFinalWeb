@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1:3307
--- Tiempo de generación: 10-05-2023 a las 03:10:09
+-- Tiempo de generación: 11-05-2023 a las 23:53:09
 -- Versión del servidor: 10.4.28-MariaDB
--- Versión de PHP: 8.2.4
+-- Versión de PHP: 8.0.28
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -31,18 +31,17 @@ CREATE TABLE `admins` (
   `id` int(11) NOT NULL,
   `nombre` varchar(25) DEFAULT NULL,
   `apellido` varchar(25) DEFAULT NULL,
-  `cargo` varchar(25) DEFAULT NULL,
-  `contraseña` varchar(100) DEFAULT NULL
+  `cargo` varchar(25) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Volcado de datos para la tabla `admins`
 --
 
-INSERT INTO `admins` (`id`, `nombre`, `apellido`, `cargo`, `contraseña`) VALUES
-(11, 'Romoncio', 'PatiÃ±o', 'Organizador principal', '9289955'),
-(12, 'Natalia', 'Paris', 'Presentador', '101010'),
-(13, 'Tatiana', 'Coy', 'Presentador', '1234');
+INSERT INTO `admins` (`id`, `nombre`, `apellido`, `cargo`) VALUES
+(11, 'Romoncio', 'PatiÃ±o', 'Organizador principal'),
+(12, 'Natalia', 'Paris', 'Presentador'),
+(13, 'Tatiana', 'Coy', 'Presentador');
 
 -- --------------------------------------------------------
 
@@ -87,7 +86,8 @@ INSERT INTO `registros` (`id`, `nombre`, `apellido`, `edad`, `genero`, `document
 (28, 'Sara', 'PatiÃ±o', 19, 'femenino', 69874, 'T.I.', 'User'),
 (29, 'Marcos', 'Alonso', 31, 'masculino', 1250041, 'C.C.', 'User'),
 (30, 'Mamma', 'Mia', 25, 'femenino', 10100048, 'T.I.', 'User'),
-(31, 'Sara', 'Coy', 20, 'femenino', 198481, 'C.C.', 'Admin');
+(31, 'Sara', 'Coy', 21, 'femenino', 198481, 'C.C.', 'User'),
+(33, 'Cristiano', 'Ronaldo', 38, 'masculino', 55534332, 'C.C.', 'User');
 
 --
 -- Índices para tablas volcadas
@@ -119,7 +119,7 @@ ALTER TABLE `admins`
 -- AUTO_INCREMENT de la tabla `registros`
 --
 ALTER TABLE `registros`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

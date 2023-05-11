@@ -1,97 +1,132 @@
 <%-- 
-    Document   : index
-    Created on : 29/04/2023, 12:40:53 p. m.
-    Author     : samue
+    Document   : Menu
+    Created on : 8 may 2023, 13:45:38
+    Author     : omont
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Registro</title>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    </head>
+    
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Menu Principal</title>        
+        
+        <link href="styleIndex.css" rel="stylesheet" type="text/css"/>
+        <link href="Fonts.css" rel="stylesheet" type="text/css"/>
+        
+    
     <body>
-        <div class="container">
-            <h2>Formulario de registro</h2>
-            <form method="POST" action="Controlador">
-                <div class="form-group">
-                    <label for="nombre">Nombre:</label>
-                    <input type="text" class="form-control" id="nombre" placeholder="Ingresa tu nombre" name="nombre" required="">
-                </div>
-                <div class="form-group">
-                    <label for="apellido">Apellido:</label>
-                    <input type="text" class="form-control" id="apellido" placeholder="Ingresa tus apellidos" name="apellido" required="">
-                </div>
-                <div class="form-group">
-                    <label for="edad">Edad:</label>
-                    <input type="number" class="form-control" id="edad" placeholder="Ingresa tu edad" name="edad">
-                </div>
-                <div class="form-group">
-                    <label for="genero">Género:</label>
-                    <select class="form-control" id="genero" name="genero">
-                        <option selected disabled>Selecciona tu género</option>
-                        <option value="masculino">Masculino</option>
-                        <option value="femenino">Femenino</option>
-                        <option value="otro">Otro</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="identificacion">Identificación:</label>
-                    <input type="number" class="form-control" id="identificacion" placeholder="Ingresa tu numero de identificacion" name="identificacion"> 
-                </div>
-                <div class="form-group">
-                    <label for="tipoIdentificacion">Típo de identificación:</label>
-                    <select class="form-control" id="tipoIdentificacion" name="tipoIdentificacion">
-                        <option selected disabled>Selecciona tu tipo de documento</option>
-                        <option>C.C.</option>
-                        <option>T.I.</option>
-                        <option>Otro</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="tipoRol">Típo de rol:</label>
-                    <select class="form-control" id="tipoRol" name="tipoRol" onchange="mostrarInput(this)">
-                        <option selected disabled>Selecciona tu rol</option>
-                        <option value="User">User</option>
-                        <option value="Admin">Admin</option>
-                    </select>
-                </div>
-                <div class="form-group" style="display: none" id="cargoAdmin">
-                    <label for="tipoRol">Típo de rol:</label>
-                    <select class="form-control" id="tipoCargo" name="tipoCargo">
-                        <option selected disabled>Selecciona tu rol</option>
-                        <option>Logistica</option>
-                        <option>Organizador principal</option>
-                        <option>Presentador</option>
-                    </select>
-                </div>
-                <div class="form-group" style="display: none" id="adminPass">
-                    <label for="pass">Contraseña:</label>
-                    <input type="password" class="form-control" id="pass" placeholder="Ingresa tu contraseña" name="pass"> 
-                </div>
-                <button name="accion" type="submit" class="btn btn-primary" value="agregar">Enviar</button>
-                <a href="principal.jsp" type="button" class="btn btn-secondary">Ver registros</a>
-                <a href="administrador.jsp" type="button" class="btn btn-info">Administradores</a>
-            </form>
-            <script>
-                function mostrarInput(elemento) {
-                    let index = elemento.selectedIndex;
-                    let opcion = elemento.options[index].value;
-                    if(opcion === "Admin"){
-                        document.getElementById("cargoAdmin").style.display = "block";
-                        document.getElementById("adminPass").style.display = "block";
-                    }else if(opcion === "User"){
-                        document.getElementById("cargoAdmin").style.display = "none";
-                        document.getElementById("adminPass").style.display = "none";
+        <header>
+            <div class="menu_bar">
+                <a href="#" class="bt-menu"><span class="icon-menu"></span>Menu</a>
+            </div>
+
+            <nav>
+                <ul>
+                    <li><a href="iniciarsesion.jsp"><span class="icon-user"></span>Iniciar Sesion</a></li>
+                    <li><a href="registro.jsp"><span class="icon-profile"></span>Registrarse</a></li>
+                    <li><a href="listarpersonas.jsp"><span class="icon-eye"></span>Visualizar Registros</a></li>				
+                </ul>
+            </nav>
+        </header>
+        <section>
+            <div class="Caja1">
+                <p>
+                    <iframe width="560" height="300"  src="https://www.youtube.com/embed/dzoEvoKNZQA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                </p>
+            </div>
+            <div class="Caja2">
+                <p>
+                    La deforestación en Colombia subió 11 % en el primer semestre de 2022. 
+                    Según Minambiente, la Amazonia perdió 54.460 hectáreas. El alza continuaría hasta finales de 2022.
+                    Las cifras indican que durante el primer trimestre del 2021 se deforestaron en el país al menos 45.000 hectáreas.
+                </p>
+            </div>
+            <div class="Caja1">
+                <p>
+                    <iframe width="560" height="300" src="https://www.youtube.com/embed/e6UsY3pQkZs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                </p>
+            </div>
+            <div class="Caja2">
+                <p>
+                    La contaminación atmosférica en Colombia
+                    Este es uno de los problemas ambientales de mayor preocupación para los colombianos por los impactos 
+                    generados tanto en la salud como en el ambiente, además, es el tercer factor generador de costos sociales 
+                    después de la contaminación del agua y de los desastres naturales. 
+                </p>
+            </div>
+            <div class="Caja1">
+                <p>
+                    <iframe width="560" height="300" src="https://www.youtube.com/embed/Rn94yeK3-nc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                </p>
+            </div>
+            <div class="Caja2">
+                <p>
+                    En medio de las alertas hechas por parte de la ciudadanía respecto a las altas temperaturas que se sienten 
+                    en diferentes zonas del territorio nacional, el Ideam (Instituto de Hidrología, Meteorología y Estudios 
+                    Ambientales) explicó a qué se debe. Según detalló la entidad, en vocería de la mayor Carolina Rueda, jefe 
+                    de la Oficina de Pronósticos y Alertas de esa organización, el tiempo seco iría hasta el mes de junio.
+                </p>
+            </div>
+            <div class="Caja1">
+                <p>
+                    <iframe width="560" height="300" src="https://www.youtube.com/embed/rJJHKJe-eEI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                </p>
+            </div>
+            <div class="Caja2">
+                <p>
+                    El 50 % de los páramos del mundo está en Colombia. Cubren un área cercana a los tres millones de hectáreas,
+                    equivalente a un poco menos del 3 % del territorio continental. En el país existen 37 complejos biogeográficos 
+                    de páramo.
+                </p>
+            </div>
+            <div class="Caja1">
+                <p>
+                    <iframe width="560" height="300" src="https://www.youtube.com/embed/PcYAOvWu1gw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                </p>
+            </div>
+            <div class="Caja2">
+                <p>
+                    Minería Ilegal: el parásito silencioso que devora a Colombia
+                    La Amazonía está siendo arrasada, entre otras cosas, por el oro. 
+                    Lo mismo sucede con el río Sambingo, ubicado en el departamento del Cauca que 
+                    ha perdido el agua por la actividad minera ilegal. También ha afectado el Municipio 
+                    de Dabeiba en Antioquia y el río Atrato en el Chocó, hoy impactado por el mercurio.
+
+                </p>
+            </div>
+
+        </section>
+        <script src="http://code.jquery.com/jquery-latest.js"></script> 
+        <script src="menu.js"></script> 
+
+        <script type="text/javascript">
+            $(document).ready(main);
+
+            var contador = 1;
+
+            function main() {
+                $('.menu_bar').click(function () {
+                    // $('nav').toggle(); 
+
+                    if (contador == 1) {
+                        $('nav').animate({
+                            left: '0'
+                        });
+                        contador = 0;
+                    } else {
+                        contador = 1;
+                        $('nav').animate({
+                            left: '-100%'
+                        });
                     }
-                }
-            </script>
-        </div>
+
+                });
+
+            }
+            ;
+
+        </script> 
+
     </body>
 </html>

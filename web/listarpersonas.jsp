@@ -1,13 +1,13 @@
 <%-- 
-    Document   : principal
-    Created on : 29/04/2023, 12:47:17 p. m.
+    Document   : listarpersonas
+    Created on : May 11, 2023, 4:31:44 PM
     Author     : samue
 --%>
+
 <%@page import="java.util.ArrayList" %>
 <%@page import="java.util.HashMap" %>
 <jsp:include page="/Controlador?accion=personas" />
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
 <html>
     <head>
         <meta charset="utf-8">
@@ -51,18 +51,6 @@
                                 out.print("<td>"+persona.get("documento")+"</td>");
                                 out.print("<td>"+persona.get("tipoDoc")+"</td>");
                                 out.print("<td>"+persona.get("Rol")+"</td>");
-                                out.print(""
-                                + "<td>"
-                                + "<form action='Controlador' method='POST'>"
-                                + "<a type='button' class='btn btn-primary' href='./actualizar.jsp?id="+persona.get("id")+"'>"
-                                + "<i class='bi bi-pencil-square'></i>"
-                                + "</a>"
-                                + "<input hidden name='id' value='"+persona.get("id")+"' />"
-                                + "<button class='btn btn-danger' name='accion' value='eliminar' type='submit'>"
-                                + "<i class='bi bi-trash'></i>"
-                                + "</button>"
-                                + "</form>"
-                                + "</td>");
                                 out.print("</tr>");
                             }
                          }

@@ -14,16 +14,14 @@ import java.sql.SQLException;
  */
 public class Administrador extends Persona{
     private String cargo;
-    private String contraseña;
 
     public Administrador() {
     }
 
-    public Administrador(String nombre, String apellido, String cargo, String contraseña){
+    public Administrador(String nombre, String apellido, String cargo){
         super.setNombre(nombre);
         super.setApellido(apellido);
         this.cargo = cargo;
-        this.contraseña = contraseña;
     }
     
     public Administrador(HttpServletRequest request) throws SQLException {
@@ -40,14 +38,6 @@ public class Administrador extends Persona{
 
     public void setCargo(String cargo) {
         this.cargo = cargo;
-    }
-
-    public String getContraseña() {
-        return contraseña;
-    }
-
-    public void setContraseña(String contraseña) {
-        this.contraseña = contraseña;
     }
     
 }

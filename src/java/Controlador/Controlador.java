@@ -16,6 +16,8 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
 import java.util.HashMap;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -26,6 +28,7 @@ public class Controlador extends HttpServlet {
 
     private PersonaDAO pdao = new PersonaDAO();
     private Persona persona;
+
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -116,9 +119,8 @@ public class Controlador extends HttpServlet {
                     String cargo = request.getParameter("tipoCargo");
                     String nombre = request.getParameter("nombre");
                     String apellido = request.getParameter("apellido");
-                    String contraseña = request.getParameter("pass");
                     persona = new Administrador(request);
-                    Administrador admin = new Administrador(nombre, apellido, cargo, contraseña);
+                    Administrador admin = new Administrador(nombre, apellido, cargo);
                     pdao.insertar(persona);
                     pdao.insertarAdmin(admin);
                     System.out.println(admin);
@@ -148,16 +150,23 @@ public class Controlador extends HttpServlet {
             }
             break;
             case "iniciarsesion":
-                String id = request.getParameter("idIngreso");
-                String pass = request.getParameter("passIngreso");
-                System.out.println("ID: "+id+" PASSWORD: "+pass);
-                boolean ingreso = pdao.ingreso(Integer.parseInt(id), pass);
-                if(ingreso == true){
-                    response.sendRedirect("principal.jsp");
-                }else{
-                    request.getRequestDispatcher("administrador.jsp").forward(request, response);
-                }                
+                String id = request.getParameter("ingresID");
+                System.out.println("ID: " + id);
+                try {
+                    int idConvert = Integer.parseInt(id);
+                    boolean ingreso = pdao.ingreso(idConvert);
+                    if (ingreso == true) {
+                        response.sendRedirect("principal.jsp");
+                    } else {
+                        request.getRequestDispatcher("iniciarsesion.jsp").forward(request, response);
+                    }
+                } catch (ServletException | IOException | NumberFormatException e) {
+                    System.out.println("Error al iniciar sesion");
+                    System.out.println("Error: " + e);
+                }
+
                 break;
+
             default:
                 break;
         }

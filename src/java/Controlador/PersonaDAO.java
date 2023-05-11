@@ -80,7 +80,6 @@ public class PersonaDAO {
             ps.setString(1, admin.getNombre());
             ps.setString(2, admin.getApellido());
             ps.setString(3, admin.getCargo());
-            ps.setString(4, admin.getContraseña());
             int resultId = ps.executeUpdate();
             System.out.println("Se inserto el ID: " + resultId);
             cerrarConexion();
@@ -205,37 +204,29 @@ public class PersonaDAO {
         }
     }
 
-    public boolean ingreso(int id, String password) {
+    public boolean ingreso(int id){
         boolean acceso = false;
-        String buscaId = "SELECT * FROM registros WHERE id=" + id;
-        String buscaPass = "SELECT * FROM registros WHERE id=" + password;
-
+        String buscaId = "SELECT * FROM admins WHERE id=" + id;
         try {
             conexion();
             if (conectar == null) {
                 throw new SQLException("missing connection");
             }
-            System.out.println("ACCESO 1: "+acceso);
+            System.out.println("ACCESO 1: " + acceso);
             st = conectar.createStatement();
             rs = st.executeQuery(buscaId);
             if (rs.next()) {
-                rs = st.executeQuery(buscaPass);
-                if (rs.next()) {
-                    acceso = true;
-                    System.out.println("ACCESO 2: "+acceso);
-                    return acceso;
-                }
-            } else {
+                acceso = true;
+                System.out.println("ACCESO 2: " + acceso);
                 return acceso;
             }
             cerrarConexion();
         } catch (SQLException e) {
             System.out.println("Error al buscar registro: " + e);
         }
-        System.out.println("ACCESO 3: "+acceso);
+        System.out.println("ACCESO 4: " + acceso);
         return acceso;
 
     }
 
 }
-//Leon: index, iniciar sesion, registrarse, visualizar
